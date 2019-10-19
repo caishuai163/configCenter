@@ -1,0 +1,34 @@
+spring:
+  cache:
+    redis:
+      time-to-live: 10m
+  datasource:
+    druid:
+      initial-size: 2
+      max-active: 50
+      max-wait: 60000
+      min-evictable-idle-time-millis: 25200000
+      min-idle: 2
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      validation-query: select 1
+  sleuth:
+    enabled: true
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://10.12.54.123:9411
+    sender:
+      type: web
+
+sms: 
+  provider:
+    jjxt:
+      account: kstdd
+      password: so0hmes6
+      url: http://ah.jj-mob.com:8000/v2/sms/send
+  valid-closed: false
+  verify-code-send-interval: 60
+  
