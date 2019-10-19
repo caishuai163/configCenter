@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 20004
 management:
   endpoints:
     web:
