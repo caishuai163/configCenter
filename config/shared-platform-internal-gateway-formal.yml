@@ -1,0 +1,60 @@
+server:
+  port: 8081
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info
+spring:
+  cloud: 
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      routes:
+        - id: shared-platform-message
+          uri: lb://shared-platform-message
+          order: 1
+          predicates:
+            - Path=/v1/message/**
+          filters:
+            - StripPrefix=2
+
+        - id: shared-platform-shop
+          uri: lb://shared-platform-shop
+          order: 1
+          predicates:
+            - Path=/v1/shop/**
+          filters:
+            - StripPrefix=2
+
+        - id: shared-platform-administrator
+          uri: lb://shared-platform-administrator
+          order: 1
+          predicates:
+            - Path=/v1/administrator/authToken
+          filters:
+            - StripPrefix=2
+
+        - id: shared-platform-account
+          uri: lb://shared-platform-account
+          order: 1
+          predicates:
+            - Path=/v1/account/user/authTokenInternal
+          filters:
+            - StripPrefix=2
+
+        - id: shared-platform-inventory
+          uri: lb://shared-platform-inventory
+          order: 1
+          predicates:
+            - Path=/v1/inventory/goods/create
+          filters:
+            - StripPrefix=2
+
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true

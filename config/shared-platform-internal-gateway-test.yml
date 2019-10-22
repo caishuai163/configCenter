@@ -1,0 +1,96 @@
+<<<<<<< HEAD
+server: 
+  port: 8081
+spring:
+  application:
+    name: shared-platform-internal-gateway
+  cloud:
+    consul:
+      enabled: true
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        enabled: true
+        prefer-ip-address: true
+        health-check-path: /actuator/health
+        healthCheckInterval: 5s
+        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        register: true
+=======
+server:
+  port: 8081
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info
+spring:
+  cloud: 
+>>>>>>> goods generate
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      routes:
+        - id: shared-platform-message
+          uri: lb://shared-platform-message
+          order: 1
+          predicates:
+            - Path=/v1/message/**
+          filters:
+            - StripPrefix=2
+<<<<<<< HEAD
+            
+=======
+
+>>>>>>> goods generate
+        - id: shared-platform-shop
+          uri: lb://shared-platform-shop
+          order: 1
+          predicates:
+            - Path=/v1/shop/**
+          filters:
+            - StripPrefix=2
+<<<<<<< HEAD
+            
+=======
+
+>>>>>>> goods generate
+        - id: shared-platform-administrator
+          uri: lb://shared-platform-administrator
+          order: 1
+          predicates:
+            - Path=/v1/administrator/authToken
+          filters:
+            - StripPrefix=2
+
+        - id: shared-platform-account
+          uri: lb://shared-platform-account
+          order: 1
+          predicates:
+            - Path=/v1/account/user/authTokenInternal
+          filters:
+            - StripPrefix=2
+<<<<<<< HEAD
+                        
+=======
+
+        - id: shared-platform-inventory
+          uri: lb://shared-platform-inventory
+          order: 1
+          predicates:
+            - Path=/v1/inventory/goods/create
+          filters:
+            - StripPrefix=2
+
+>>>>>>> goods generate
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+<<<<<<< HEAD
+
+=======
+>>>>>>> goods generate

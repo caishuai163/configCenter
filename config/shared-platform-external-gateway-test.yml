@@ -1,0 +1,94 @@
+server:
+  port: 8081
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+spring:
+  application:
+    name: shared-platform-external-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      routes:
+        - id: shared-platform-administrator
+          uri: lb://shared-platform-administrator
+          order: 1
+          predicates:
+            - Path=/v1/administrator/**
+          filters:
+            - StripPrefix=2
+
+        - id: shared-platform-message
+          uri: lb://shared-platform-message
+          order: 1
+          predicates:
+            - Path=/v1/message/sms/send
+          filters:
+            - StripPrefix=2
+
+        - id: shared-platform-account
+          uri: lb://shared-platform-account
+          order: 1
+          predicates:
+            - Path=/v1/account/**
+          filters:
+            - StripPrefix=2
+
+        - id: shared-platform-shop
+          uri: lb://shared-platform-shop
+          order: 1
+          predicates:
+            - Path=/v1/shop/**
+          filters:
+            - StripPrefix=2
+
+        - id: shared-platform-order
+          uri: lb://shared-platform-order
+          order: 1
+          predicates:
+            - Path=/v1/order/**
+          filters:
+            - StripPrefix=2
+
+        - id: shared-platform-inventory
+          uri: lb://shared-platform-inventory
+          order: 1
+          predicates:
+            - Path=/v1/inventory/component/getPage,/v1/inventory/component/changeStatus,/v1/inventory/component/getInfo
+          filters:
+            - StripPrefix=2
+
+        - id: shared-platform-goods
+          uri: lb://shared-platform-goods
+          order: 1
+          predicates:
+            - Path=/v1/goods/**
+          filters:
+            - StripPrefix=2
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+
+shared-platform:
+  gateway:
+    validate-sign:
+      open: false
+    filters:
+      account-path:
+      - /v1/account/user/auth
+      - /v1/account/user/jumpActivate
+      - /v1/account/student/info
+      administrator-path:
+      - /v1/shop/shopCodes
+      - /v1/shop/modify/info
+      - /v1/shop/info
+      - /v1/inventory/component/getPage
+      - /v1/inventory/component/changeStatus
+      - /v1/goods/**
