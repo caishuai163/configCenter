@@ -8,4 +8,4 @@ spring:
       discovery:
         register: true
 gyyx:
-  abc: aaadd
+  abc: aaaddssssss
