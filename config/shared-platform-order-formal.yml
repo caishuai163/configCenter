@@ -15,4 +15,4 @@ management:
       exposure:
         include: "*"
 gyyx:
-  test: abc
+  test: abcaaaa
