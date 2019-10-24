@@ -59,7 +59,7 @@ spring:
           uri: lb://shared-platform-inventory
           order: 1
           predicates:
-            - Path=/v1/inventory/component/getPage,/v1/inventory/component/changeStatus,/v1/inventory/component/getInfo
+            - Path=/v1/inventory/component/getPage,/v1/inventory/component/changeStatus,/v1/inventory/component/getInfo,/v1/inventory/goods/manage
           filters:
             - StripPrefix=2
 
@@ -91,4 +91,5 @@ shared-platform:
       - /v1/shop/info
       - /v1/inventory/component/getPage
       - /v1/inventory/component/changeStatus
+      - /v1/inventory/goods/manage
       - /v1/goods/**
