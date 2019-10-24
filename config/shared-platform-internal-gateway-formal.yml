@@ -52,7 +52,14 @@ spring:
             - Path=/v1/inventory/goods/create
           filters:
             - StripPrefix=2
-
+            
+        - id: shared-platform-goods
+          uri: lb://shared-platform-goods
+          order: 1
+          predicates:
+            - Path=/v1/goods/info
+          filters:
+            - StripPrefix=2
 feign:
   httpclient:
     enabled: false
