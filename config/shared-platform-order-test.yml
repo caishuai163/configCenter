@@ -1,4 +1,8 @@
 spring:
+  cloud:
+    consul:
+      discovery:
+        register: false
   application:
     name: shared-platform-order
 server:
