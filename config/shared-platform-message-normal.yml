@@ -8,8 +8,7 @@ management:
 
 
 spring:
-  rabbitmq:
-    host: shared-platform-rabbitmq-cip
+
   cloud:
     consul:
       discovery:
