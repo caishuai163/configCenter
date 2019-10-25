@@ -18,6 +18,7 @@ spring:
   cloud:
     bus:
       enabled: false
+      
   cache:
     redis:
       time-to-live: 10m
