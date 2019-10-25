@@ -5,6 +5,10 @@ management:
     web:
       exposure:
         include: refresh,health,info
+shared-platform:
+  service:
+    intercepter:
+      open: false
 feign:
   httpclient:
     enabled: false
@@ -14,6 +18,10 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
 spring:
+  cloud: 
+    consul: 
+      discovery:
+        register: false
   cache:
     redis:
       time-to-live: 10m
