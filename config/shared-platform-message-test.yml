@@ -18,7 +18,9 @@ mybatis:
     map-underscore-to-camel-case: true
 
 spring:
-
+  cloud:
+    bus:
+      enabled: false
 
   cache:
     redis:
