@@ -1,6 +1,9 @@
 server:
   port: 8091
 management:
+  health:
+    rabbit:
+      enabled: false
   endpoints:
     web:
       exposure:
@@ -18,7 +21,7 @@ spring:
   cloud:
     bus:
       enabled: false
-      
+
   cache:
     redis:
       time-to-live: 10m
