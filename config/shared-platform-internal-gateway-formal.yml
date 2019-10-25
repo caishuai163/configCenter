@@ -49,7 +49,7 @@ spring:
           uri: lb://shared-platform-inventory
           order: 1
           predicates:
-            - Path=/v1/inventory/goods/create
+            - Path=/v1/inventory/goods/create,/v1/inventory/goods/manage
           filters:
             - StripPrefix=2
             
