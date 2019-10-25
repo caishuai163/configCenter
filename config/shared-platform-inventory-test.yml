@@ -42,6 +42,6 @@ spring:
       validation-query: select 1
 
   sleuth:
-    enabled: false
+    enabled: true
     sampler:
       probability: 1.0
