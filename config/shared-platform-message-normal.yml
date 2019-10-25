@@ -5,19 +5,15 @@ management:
     web:
       exposure:
         include: '*'
-feign:
-  httpclient:
-    enabled: false
-  okhttp:
-    enabled: true
-mybatis:
-  configuration:
-    map-underscore-to-camel-case: true
+
 
 spring:
   rabbitmq:
     host: shared-platform-rabbitmq-cip
   cloud:
+    consul:
+      discovery:
+        register: true
     bus:
       trace:
         enabled: true
@@ -48,3 +44,12 @@ sms:
       url: http://ah.jj-mob.com:8000/v2/sms/send
   valid-closed: false
   verify-code-send-interval: 60
+
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
