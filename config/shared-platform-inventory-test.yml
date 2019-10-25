@@ -23,10 +23,8 @@ mybatis:
 spring:
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration
-  cloud: 
-    consul: 
-      discovery:
-        register: false
+
+
   cache:
     redis:
       time-to-live: 10m
