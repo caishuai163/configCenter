@@ -4,7 +4,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh,health,info
+        include: '*'
 feign:
   httpclient:
     enabled: false
@@ -15,6 +15,10 @@ mybatis:
     map-underscore-to-camel-case: true
 
 spring:
+  cloud:
+    bus:
+      trace:
+        enabled: true
   cache:
     redis:
       time-to-live: 10m
@@ -34,7 +38,7 @@ spring:
     enabled: true
     sampler:
       probability: 1.0
-sms: 
+sms:
   provider:
     jjxt:
       account: kstdd
@@ -42,4 +46,3 @@ sms:
       url: http://ah.jj-mob.com:8000/v2/sms/send
   valid-closed: false
   verify-code-send-interval: 60
-  
