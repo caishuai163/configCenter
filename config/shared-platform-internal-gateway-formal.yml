@@ -4,9 +4,11 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh,health,info
+        include: '*'
 spring:
-  cloud: 
+  rabbitmq:
+    host: shared-platform-rabbitmq-cip
+  cloud:
     gateway:
       discovery:
         locator:
@@ -52,7 +54,7 @@ spring:
             - Path=/v1/inventory/goods/create,/v1/inventory/goods/manage
           filters:
             - StripPrefix=2
-            
+
         - id: shared-platform-goods
           uri: lb://shared-platform-goods
           order: 1
