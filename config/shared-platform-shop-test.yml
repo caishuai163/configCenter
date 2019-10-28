@@ -43,5 +43,5 @@ spring:
 shared-platform:
   service:
     intercepter:
-      open: false
+      open: true
     sourceType: shopVerify
