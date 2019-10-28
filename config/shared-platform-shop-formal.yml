@@ -44,3 +44,7 @@ spring:
     enabled: true
     sampler:
       probability: 1.0
+
+shared-platform:
+  service:
+    sourceType: shopVerify
