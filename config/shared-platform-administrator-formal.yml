@@ -14,6 +14,13 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
 spring:
+  cloud:
+    consul:
+      discovery:
+        register: true
+    bus:
+      trace:
+        enabled: true
   rabbitmq:
     host: shared-platform-rabbitmq-cip
   cache:

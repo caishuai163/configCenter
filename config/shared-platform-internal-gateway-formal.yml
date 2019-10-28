@@ -9,6 +9,12 @@ spring:
   rabbitmq:
     host: shared-platform-rabbitmq-cip
   cloud:
+    consul:
+      discovery:
+        register: true
+    bus:
+      trace:
+        enabled: true
     gateway:
       discovery:
         locator:
