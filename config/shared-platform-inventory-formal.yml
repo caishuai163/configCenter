@@ -4,7 +4,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh,health,info
+        include: '*'
 feign:
   httpclient:
     enabled: false
@@ -14,6 +14,8 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
 spring:
+  rabbitmq:
+    host: shared-platform-rabbitmq-cip
   cache:
     redis:
       time-to-live: 10m
