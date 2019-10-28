@@ -16,12 +16,13 @@ mybatis:
 spring:
   rabbitmq:
     host: shared-platform-rabbitmq-cip
-  consul:
-    discovery:
-      register: true
-  bus:
-    trace:
-      enabled: true
+  cloud:
+    consul:
+      discovery:
+        register: true
+    bus:
+      trace:
+        enabled: true
   cache:
     redis:
       time-to-live: 10m
