@@ -4,7 +4,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh,health,info
+        include: '*'
 feign:
   httpclient:
     enabled: false
@@ -14,11 +14,16 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
 spring:
+  consul:
+    discovery:
+      register: true
+  bus:
+    trace:
+      enabled: true
   cache:
     redis:
       time-to-live: 10m
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
     druid:
       initial-size: 2
       max-active: 50
@@ -30,22 +35,9 @@ spring:
       test-while-idle: true
       time-between-eviction-runs-millis: 60000
       validation-query: select 1
-    password: B4DDC0B232D0E997
-    type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://10.12.54.48:3306/shared_platform_shop_db?characterEncoding=utf-8&useSSL=false
-    username: dev_dbo_test
-  devtools:
-    add-properties: true
-  redis:
-    database: 7
-    host: 10.12.54.11
-    password: Passw0rd
-    port: 63802
+
+
   sleuth:
     enabled: true
     sampler:
       probability: 1.0
-  zipkin:
-    base-url: http://10.12.54.123:9411
-    sender:
-      type: web
