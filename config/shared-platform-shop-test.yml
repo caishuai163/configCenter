@@ -44,3 +44,4 @@ shared-platform:
   service:
     intercepter:
       open: false
+    sourceType: shopVerify
