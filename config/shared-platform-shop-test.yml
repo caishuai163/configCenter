@@ -39,3 +39,8 @@ spring:
     enabled: true
     sampler:
       probability: 1.0
+
+shared-platform:
+  service:
+    intercepter:
+      open: false
