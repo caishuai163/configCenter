@@ -1,5 +1,13 @@
 server:
-  port: 8087
+  port: 8095
+management:
+  health:
+    rabbit:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 feign:
   httpclient:
     enabled: false
@@ -9,6 +17,9 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
 spring:
+  cloud:
+    bus:
+      enabled: false
   cache:
     redis:
       time-to-live: 10m

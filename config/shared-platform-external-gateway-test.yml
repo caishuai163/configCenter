@@ -1,13 +1,17 @@
 server:
-  port: 8081
+  port: 8094
 management:
+  health:
+    rabbit:
+      enabled: false
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: '*'
 spring:
-  application:
-    name: shared-platform-external-gateway
+  cloud:
+    bus:
+      enabled: false
   cloud:
     gateway:
       discovery:

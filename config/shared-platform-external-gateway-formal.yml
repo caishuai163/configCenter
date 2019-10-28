@@ -6,8 +6,8 @@ management:
       exposure:
         include: "*"
 spring:
-  application:
-    name: shared-platform-external-gateway
+  rabbitmq:
+    host: shared-platform-rabbitmq-cip
   cloud:
     gateway:
       discovery:
