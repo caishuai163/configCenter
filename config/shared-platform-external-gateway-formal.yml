@@ -6,6 +6,12 @@ management:
       exposure:
         include: "*"
 spring:
+  consul:
+    discovery:
+      register: true
+  bus:
+    trace:
+      enabled: true
   rabbitmq:
     host: shared-platform-rabbitmq-cip
   cloud:
