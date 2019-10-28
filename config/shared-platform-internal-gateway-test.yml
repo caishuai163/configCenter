@@ -47,7 +47,7 @@ spring:
           uri: lb://shared-platform-account
           order: 1
           predicates:
-            - Path=/v1/account/user/authTokenInternal
+            - Path=/v1/account/**
           filters:
             - StripPrefix=2
 
