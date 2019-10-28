@@ -10,7 +10,8 @@ management:
         include: '*'
 spring:
   cloud:
-  sled: false
+    bus:
+      enabled: false
     gateway:
       discovery:
         locator:
