@@ -41,16 +41,12 @@ spring:
       probability: 1.0
 
 
-
-app: goodsPositioner
-boss:
-  thread:
-    count: 2
-so:
-  backlog: 128
-  keepalive: true
-tcp:
-  port: 9991
-worker:
-  thread:
-    count: 2
+shared-platform:
+  position:
+    netty:
+      app: goodsPositioner
+      tcp-port: 9991
+      boss-thread-count: 2
+      worker-thread-count: 2
+      so-keep-alive: true
+      so-backlog: 128
