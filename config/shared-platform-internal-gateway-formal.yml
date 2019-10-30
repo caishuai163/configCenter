@@ -57,7 +57,7 @@ spring:
           uri: lb://shared-platform-inventory
           order: 1
           predicates:
-            - Path=/v1/inventory/goods/create,/v1/inventory/goods/manage
+            - Path=/v1/inventory/**
           filters:
             - StripPrefix=2
 
@@ -65,7 +65,7 @@ spring:
           uri: lb://shared-platform-goods
           order: 1
           predicates:
-            - Path=/v1/goods/info
+            - Path=/v1/goods/**
           filters:
             - StripPrefix=2
 feign:
