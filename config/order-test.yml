@@ -9,3 +9,4 @@ spring:
         register: true
 gyyx:
   aaa: aaa
+  bbb: asdf
