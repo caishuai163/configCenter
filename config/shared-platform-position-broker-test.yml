@@ -1,0 +1,56 @@
+management:
+  health:
+    rabbit:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+spring:
+  cloud:
+    bus:
+      enabled: false
+
+  cache:
+    redis:
+      time-to-live: 10m
+  datasource:
+    druid:
+      initial-size: 2
+      max-active: 50
+      max-wait: 60000
+      min-evictable-idle-time-millis: 25200000
+      min-idle: 2
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      validation-query: select 1
+  sleuth:
+    enabled: true
+    sampler:
+      probability: 1.0
+
+
+
+app: goodsPositioner
+boss:
+  thread:
+    count: 2
+so:
+  backlog: 128
+  keepalive: true
+tcp:
+  port: 9991
+worker:
+  thread:
+    count: 2
